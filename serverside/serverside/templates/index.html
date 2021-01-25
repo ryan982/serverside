@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+
+{% block content %}
+  <div class="my-form">
+    <div class="row">
+        <form method="post">
+          {% csrf_token %}
+          {{ form }}  
+         
+         
+          {% if messages %}
+          {% for message in messages %}
+
+          <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Your mail is sent. Please wait for my response</strong>
+          </div>
+
+          {% endfor %}
+          {% endif %}
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+  </div>
+{% endblock%}
+
+  
+</html>
